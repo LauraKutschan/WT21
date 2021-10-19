@@ -1,0 +1,14 @@
+.wirsindbilder {
+    width:200px;
+    height:58px;
+}
+
+.fettertext {
+    font-weight: bold;
+}
+
+.duennertext {
+    font-weight: lighter;
+    font-style: italic;
+    color: blueviolet;
+}
