@@ -1,0 +1,80 @@
+body{
+    font-family: Verdana;
+}
+
+header{
+    background-color: lightgray;
+    color: coral;
+    text-align: center;
+}
+
+.wirsindbilder {
+    width:63px;
+    height:58px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: forestgreen;
+}
+
+li {
+    float: left;
+}
+
+a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+nav {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: limegreen;
+    color: white;
+}
+
+table {
+    width: 80%;
+    margin-left: 10%;
+    box-shadow: 8px 8px 4px grey;
+    margin-bottom: 10px;
+}
+
+.active {
+    background-color: coral;
+}
+
+footer {
+    background-color: coral;
+    text-align: center;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
