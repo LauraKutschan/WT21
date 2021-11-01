@@ -1,0 +1,44 @@
+body {
+    font-family: "Apple Symbols";
+    background-color: #e3d8ff;
+}
+
+header {
+    background-color: #c5b7ff;
+    padding: 2px;
+    text-align: center;
+    color: #634b93;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+}
+
+
+
+ol {
+    font-size: x-large;
+    color: #634b93;
+}
+
+a {
+    color: #634b93;
+    text-decoration: none;
+}
+
+a:hover {
+    font-size: xx-large;
+}
+
+a:active {
+    color: darksalmon;
+}
+
+footer {
+    background-color: #c5b7ff;
+    padding: 2px;
+    text-align: center;
+    color: #634b93;
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+}
