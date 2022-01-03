@@ -9,25 +9,15 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 })
 export class HomeComponent {
   /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
-
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
-    })
-  );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  slides = [
+    {'image': '../../assets/imagesProjekt/plant2.jpg'},
+    {'image': '../../assets/imagesProjekt/plant3.jpg'},
+    {'image': '../../assets/imagesProjekt/plant4.jpg'},
+    {'image': '../../assets/imagesProjekt/plant.jpg'},
+    {'image': '../../assets/imagesProjekt/sunflower.jpg'}
+  ];
+
 }

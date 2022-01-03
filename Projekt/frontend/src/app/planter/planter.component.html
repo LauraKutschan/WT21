@@ -1,0 +1,6 @@
+<div *ngFor="let plan of plans">
+  <span>{{plan.plant}}</span>
+  <span>{{plan.date}}</span>
+  <span>{{plan.activity}}</span>
+  <button (click)="delete(plan._id)">delete</button>
+</div>

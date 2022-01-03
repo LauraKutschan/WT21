@@ -6,12 +6,35 @@
   width: 200px;
 }
 
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
   z-index: 1;
+  background-color: #A6B592 !important;
 }
+
+.text {
+  margin-left: 75%;
+}
+
+.right {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  font-size: 15px;
+}
+
+.button-styling {
+  color: #485043;
+}
+
+.logo-styling {
+  font-size: xx-large;
+  font-family: Impact;
+  color: #485043
+}
+
+button {
+  padding: 2%;
+}
+

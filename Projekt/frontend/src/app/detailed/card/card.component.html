@@ -1,0 +1,22 @@
+<div>
+  <div style="overflow:scroll; height:570px;">
+    <div *ngFor="let card of cards">
+      <div class="div"><mat-checkbox (change)="check(card)" class="checkbox-styling">
+        <mat-card class="matcard-styling-with-hover" [routerLink]="'/yourPlants/plan/' + card._id">
+          <mat-card-title>{{card.plant}}</mat-card-title>
+          <mat-card-content class="content-hover">Zuletzt aktualisiert am </mat-card-content>
+        </mat-card>
+      </mat-checkbox></div>
+    </div>
+    <div *ngIf="cards == null">
+      <mat-card class="matcard-styling-dark">
+        <mat-card-content>noch keine Pflanzen angelegt</mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <mat-card class="matcard-styling">
+    <button mat-button (click)="add()">ADD</button>
+    <span class="spacer"></span>
+    <button mat-button (click)="delete()">DELETE</button>
+  </mat-card>
+</div>

@@ -1,0 +1,14 @@
+.main-div {
+  height: 100%;
+  padding: 5%;
+  background-color: #A6B592;
+}
+
+@media screen and (max-width: 1230px) {
+  .main-img-styling {
+    height: 900px;
+    min-width: 500px;
+
+  }
+}
+
