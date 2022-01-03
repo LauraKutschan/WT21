@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
-const PORT = 3000;
+const PORT = 2000;
 
 app.use(express.json());
 // enable cors for all requests
@@ -28,3 +28,4 @@ app.listen(PORT, (error) => {
         console.log(`Server started and listening on port ${PORT} ... `);
     }
 });
+

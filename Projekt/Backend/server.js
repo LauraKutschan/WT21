@@ -1,16 +1,26 @@
 const express = require('express');
 const cors = require('cors');
-const routes = require('./models/routes');
+const routesPlan = require('./routes/routesPlan');
+const routesCard = require('./routes/routesCard');
+
 const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
-const PORT = 3000;
+const PORT = 2100;
 
 app.use(express.json());
 // enable cors for all requests
 app.use(cors());
-app.use('/', routes);
+/*Wenn Sie z.B. nur die get-Anfrage teilen wollen,
+dann wählen Sie nicht app.use(cors());, sondern
+
+app.get("/", cors(), (req, res) => {
+    res.json({ message: "Hello FIW!" });
+});*/
+app.use('/', routesPlan);
+app.use('/', routesCard);
+
 
 // connect to mongoDB
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -19,7 +29,6 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
     console.log('connected to DB');
 });
-
 
 app.listen(PORT, (error) => {
     if (error) {
