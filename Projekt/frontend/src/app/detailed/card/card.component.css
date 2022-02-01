@@ -3,7 +3,7 @@
   background-color: rgba(40, 49, 36, 0.8);
   margin-bottom: 5px;
   word-wrap: break-word;
-  min-width: 100%;
+  min-width: 80%;
 }
 
 
@@ -30,7 +30,12 @@
 }
 
 .icon-styling {
-  margin-left: 95%;
+  position:absolute;
+  right: 5%;
+  top: 40%;
+}
+.material-icons.md-24 {
+  font-size: 24px;
 }
 
 .content-hover {
@@ -38,6 +43,9 @@
   line-height: 15px;
 }
 
+.title-styling {
+  width: 90%;
+}
 
 .matcard-styling-with-hover:hover .content-hover {
   display: block;
@@ -57,14 +65,11 @@ button {
   padding-right: 20%;
   padding-top: 20px;
   padding-bottom: 20px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 20px;
-}
-
-.spacer {
-  margin: 5%;
 }
 
 
@@ -76,16 +81,18 @@ button {
   }
 }
 
-
-.checkbox-styling {
-  margin: 0 12px;
+.scroll {
+  overflow: auto;
+  height:570px;
 }
 
-::ng-deep .mat-checkbox-frame {
-  border-color: #badbcc;
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scroll::-webkit-scrollbar {
+  display: none;
 }
 
-:host ::ng-deep  .mat-checkbox-checked .mat-checkbox-background {
-  background-color: green;
+/* Hide scrollbar for IE, Edge and Firefox */
+.scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
-

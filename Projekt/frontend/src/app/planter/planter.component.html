@@ -1,6 +1,50 @@
-<div *ngFor="let plan of plans">
-  <span>{{plan.plant}}</span>
-  <span>{{plan.date}}</span>
-  <span>{{plan.activity}}</span>
-  <button (click)="delete(plan._id)">delete</button>
+<div class="main-div">
+  <mat-grid-list cols="2" rowHeight="150px">
+    <mat-grid-tile class="tile-styling" [colspan]="1" [rowspan]="5">
+      <mat-card class="matcard-styling">
+        <mat-card-title (click)="openEditDialog()" class="title-styling">
+          {{plantCard}}
+        </mat-card-title>
+        <mat-card-content class="content-styling">
+          <mat-card class="matcard-styling2">
+            <div *ngFor="let plan of plans">
+              <mat-card class="example">
+                <span>PLAN Id: {{plan._id}}</span>
+                <span>{{plan.plant}}</span>
+                <span>{{plan.date}}</span>
+                <span>{{plan.activity}}</span>
+                <span>{{plan.idPlant}}</span>
+                <button (click)="delete(plan._id)">delete</button>
+              </mat-card>
+            </div>
+
+            <mat-card class="example" *ngIf="plans.length == 0">
+              <span>Du hast deine Routine noch nicht eingetragen.</span>
+            </mat-card>
+          </mat-card>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile class="tile-styling" [colspan]="1" [rowspan]="4">
+      <mat-card class="matcard-styling">
+        <mat-card-title class="title-styling">DEIN PLANTER</mat-card-title>
+          <mat-card-content class="content-styling">
+            <mat-card class="matcard-styling2">
+              <mat-card class="demo-inline-calendar-card">
+                <mat-calendar [(selected)]="selected"></mat-calendar>
+              </mat-card>
+              <p>Selected date: {{selected}}</p>
+
+            </mat-card>
+          </mat-card-content>
+
+      </mat-card>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <button> ADD </button>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

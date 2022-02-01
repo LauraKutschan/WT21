@@ -27,6 +27,10 @@ import { InfoComponent } from './info/info.component';
 import { DetailedComponent } from './detailed/detailed.component';
 import { CardComponent } from './detailed/card/card.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import { EditDialogComponent } from './planter/edit-dialog/edit-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -39,28 +43,32 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     InfoComponent,
     DetailedComponent,
     CardComponent,
+    EditDialogComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatInputModule,
-        MatButtonModule,
-        MatSelectModule,
-        MatRadioModule,
-        MatCardModule,
-        ReactiveFormsModule,
-        MatGridListModule,
-        MatMenuModule,
-        MatIconModule,
-        LayoutModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatListModule,
-        HttpClientModule,
-        MatCheckboxModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatIconModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    HttpClientModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

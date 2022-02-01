@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Card} from "../../shared/card";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BackendService} from "../../shared/backend.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-card',
@@ -11,25 +11,25 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 })
 export class CardComponent implements OnInit {
   cards!: Card[];
-  card!: Card;
+  card: Card = {_id: '', plant: ''};
   id: string = '';
-  deleteCards: Card[] = [];
-  checked = false;
+  deleted = false;
 
 
   constructor( private route: ActivatedRoute,
                private bs: BackendService,
-               fb: FormBuilder) {}
+               private fb: FormBuilder,
+               private router: Router
+  )
+  {}
 
   ngOnInit(): void {
     this.readAll();
-    this.id = this.route.snapshot.paramMap.get('id') || '';
-    this.readOne(this.id);
   }
 
   readAll(): void {
     console.log("readAll aufgerufen");
-    this.bs.getAllPlants().subscribe(
+    this.bs.getAllCards().subscribe(
       (
         response: Card[]) => {
         this.cards = response;
@@ -40,65 +40,41 @@ export class CardComponent implements OnInit {
     );
   }
 
-  delete(): void {
-    console.log("id : " );
-    this.deleteCards.forEach((card:Card) => {
-      this.bs.deleteOne(card._id).subscribe((response: Card) => {
-        if(this.cards.find(x => x == response)) {
-        this.cards.splice(this.cards.indexOf(response), 1);
-      }});
-    });
-    this.deleteCards=[];
-    this.ngOnInit();
-  }
-
-  readOne(id: string): void {
-    this.bs.getOnePlant(id).subscribe(
-      (response: Card) => {
-        this.card = response;
-        console.log(this.card);
-        return this.card;
+  delete(id: string): void {
+    console.log('delete aufgerufen');
+    this.bs.deleteOne(id).subscribe(
+      (
+        response: any) => {
+        console.log('response : ', response);
+        if(response.status == 204){
+          console.log(response.status);
+          this.reload(true);
+        } else {
+          console.log(response.status);
+          console.log(response.error);
+          this.reload(false);
+        }
       },
       error => console.log(error)
     );
   }
 
   add(): void {
-    const values = 'Click to edit';
-    this.card.plant = values;
-    this.card._id = this.id;
+    this.card.plant = 'Benenne deine Pflanze';
+    console.log('Vorher: ' + this.card.plant);
     this.bs.add(this.card).subscribe(
       response => {
-      console.log(response);
-      console.log(response._id);
+        console.log('Nachher: ' + this.card.plant);
+        this.card = response;
+        this.cards.push(this.card);
     },
     error => {
       console.log(error);
     });
-    this.cards.push(this.card);
   }
 
-
-  check(card: Card):void {
-    console.log("aufgerufen" + card._id);
-
-    if(this.deleteCards.length >= 1) {
-      this.deleteCards.forEach((cardDel: Card) => {
-        console.log(cardDel._id);
-        if (cardDel._id == card._id) {
-          this.deleteCards.splice(this.deleteCards.indexOf(card), 1);
-        } else {
-          this.deleteCards.push(card);
-        }
-      });
-    } else {
-      this.deleteCards.push(card);
-    }
-    console.log("fertig" + this.deleteCards);
-
-  }
-
-  cancel(): void {
-
+  reload(deleted: boolean) {
+    this.deleted = deleted;
+    this.readAll();
   }
 }

@@ -20,7 +20,7 @@ router.get('/yourPlants', async(req, res) => {
 // post one plan
 router.post('/yourPlants', async(req, res) => {
     const newCard = new Card({
-        plant: req.body.plant
+            plant: req.body.plant
     })
     await newCard.save();
     res.send(newCard);

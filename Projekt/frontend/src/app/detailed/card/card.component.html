@@ -1,12 +1,20 @@
 <div>
-  <div style="overflow:scroll; height:570px;">
+  <div class="scroll" >
     <div *ngFor="let card of cards">
-      <div class="div"><mat-checkbox (change)="check(card)" class="checkbox-styling">
-        <mat-card class="matcard-styling-with-hover" [routerLink]="'/yourPlants/plan/' + card._id">
-          <mat-card-title>{{card.plant}}</mat-card-title>
-          <mat-card-content class="content-hover">Zuletzt aktualisiert am </mat-card-content>
+      <div class="div">
+        <mat-card class="matcard-styling-with-hover">
+          <mat-card-title class="title-styling">{{card.plant}}</mat-card-title>
+          <div>
+            <span class="material-icons md-24 icon-styling content-hover">
+              <mat-icon (click)="delete(card._id)">cancel</mat-icon>
+              <mat-icon [routerLink]="'/yourPlants/' + card._id + '/plan/'">arrow_forward_ios</mat-icon>
+            </span>
+          </div>
+          <mat-card-content class="content-hover">
+            <span>Zuletzt aktualisiert am</span>
+          </mat-card-content>
         </mat-card>
-      </mat-checkbox></div>
+      </div>
     </div>
     <div *ngIf="cards == null">
       <mat-card class="matcard-styling-dark">
@@ -16,7 +24,5 @@
   </div>
   <mat-card class="matcard-styling">
     <button mat-button (click)="add()">ADD</button>
-    <span class="spacer"></span>
-    <button mat-button (click)="delete()">DELETE</button>
   </mat-card>
 </div>

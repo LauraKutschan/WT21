@@ -12,21 +12,22 @@ export class BackendService {
   cardUrl = 'http://localhost:2100/yourPlants';
   planUrl = 'http://localhost:2100/yourPlants/plan';
 
+
   constructor(private http: HttpClient) { }
 
   // PLANTS
-  getAllPlants(): Observable<Card[]>{
+  getAllCards(): Observable<Card[]>{
     console.log("backend.service aufgerufen");
     return this.http.get<Card[]>(this.cardUrl);
   }
 
-  getOnePlant(id: string): Observable<Card>{
+  getOneCard(id: string): Observable<Card>{
     return this.http.get<Card>(this.cardUrl + '/' + id);
   }
 
-  add(card: Card): Observable<Card> {
-    console.log('backend add aufgerufen: ' + card);
-    return this.http.post<Card>(this.cardUrl, card);
+  add(data: Card): Observable<Card> {
+    console.log('backendanbindung add aufgerufen: ' + data);
+    return this.http.post<Card>(this.cardUrl, data);
   }
 
   update(id: string, data: Card): Observable<Card> {
@@ -38,6 +39,8 @@ export class BackendService {
   }
 
 
+
+
   //PLANS
   getAllPlans(): Observable<Plan[]>{
     return this.http.get<Plan[]>(this.planUrl);
@@ -46,4 +49,9 @@ export class BackendService {
   getOnePlan(id: string): Observable<Plan>{
     return this.http.get<Plan>(this.planUrl + '/' + id);
   }
+
+  getAllPlansToPlant(id: string): Observable<Plan[]>{
+    return this.http.get<Plan[]>(this.cardUrl + '/' + id + '/plan');
+  }
+
 }

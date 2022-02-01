@@ -7,10 +7,11 @@ import {PlanterComponent} from "./planter/planter.component";
 import {InfoComponent} from "./info/info.component";
 import {DetailedComponent} from "./detailed/detailed.component";
 
-const routes: Routes = [{
+const routes: Routes = [
+  {
   path: '',
   component: HomeComponent
-},
+  },
   {
     path: 'login',
     component: LoginComponent
@@ -20,7 +21,7 @@ const routes: Routes = [{
     component: RegisterComponent
   },
   {
-    path: 'yourPlants/plan/:id',
+    path: 'yourPlants/:id/plan',
     component: PlanterComponent
   },
   {

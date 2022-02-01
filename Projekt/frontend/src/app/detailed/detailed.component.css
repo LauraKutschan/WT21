@@ -13,9 +13,10 @@
   margin: auto;
 }
 
+
 .matcard-styling2 {
   height: 100%;
-  width: 100%;
+  width: 80%;
   background-color: rgba(40, 49, 36, 0.8);
   margin: auto;
 }
@@ -41,6 +42,7 @@
   font-size: 55px;
   line-height: 55px;
   color: white;
+  text-align: center;
 }
 
 .gif-styling {

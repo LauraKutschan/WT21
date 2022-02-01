@@ -18,11 +18,12 @@ router.get('/yourPlants/plan', async(req, res) => {
 });
 
 // post one plan
-router.post('/yourPlants/plan', async(req, res) => {
+router.post('/yourPlants/:id/plan', async(req, res) => {
     const newPlan = new Plan({
         plant: req.body.plant,
         date: req.body.date,
-        activity: req.body.activity
+        activity: req.body.activity,
+        idPlant: req.body.idPlant,
     })
     await newPlan.save();
     res.send(newPlan);
@@ -38,6 +39,21 @@ router.get('/yourPlants/plan/:id', async(req, res) => {
         res.status(404);
         res.send({
             error: "Plan does not exist!"
+        });
+    }
+})
+
+
+// get all plans via idPlant
+router.get('/yourPlants/:id/plan', async(req, res) => {
+    try {
+        const plan = await Plan.find({ idPlant: req.params.id });
+        console.log(req.params);
+        res.send(plan);
+    } catch {
+        res.status(404);
+        res.send({
+            error: "Plans does not exist!"
         });
     }
 })
