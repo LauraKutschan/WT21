@@ -31,6 +31,9 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import { EditDialogComponent } from './planter/edit-dialog/edit-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { AlreadyExistsDialogComponent } from './register/already-exists-dialog/already-exists-dialog.component';
+import { RegistrationSucceededComponent } from './register/registration-succeeded/registration-succeeded.component';
+import { PopularPlantsComponent } from './popular-plants/popular-plants.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,9 @@ import {MatDialogModule} from "@angular/material/dialog";
     DetailedComponent,
     CardComponent,
     EditDialogComponent,
+    AlreadyExistsDialogComponent,
+    RegistrationSucceededComponent,
+    PopularPlantsComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,8 @@ import { RegisterComponent } from './register/register.component';
 import {PlanterComponent} from "./planter/planter.component";
 import {InfoComponent} from "./info/info.component";
 import {DetailedComponent} from "./detailed/detailed.component";
+import {RegistrationSucceededComponent} from "./register/registration-succeeded/registration-succeeded.component";
+import {AuthguardGuard} from "./guards/authguard.guard";
 
 const routes: Routes = [
   {
@@ -26,11 +28,16 @@ const routes: Routes = [
   },
   {
     path: 'yourPlants',
-    component: DetailedComponent
+    component: DetailedComponent,
+    canActivate: [AuthguardGuard]
   },
   {
     path: 'info',
     component: InfoComponent
+  },
+  {
+    path: 'registration',
+    component: RegistrationSucceededComponent
   }];
 
 @NgModule({

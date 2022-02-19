@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import { Plan } from './plan';
 import { Card } from './card';
+import {User} from "./user";
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +11,24 @@ import { Card } from './card';
 
 export class BackendService {
   cardUrl = 'http://localhost:2100/yourPlants';
-  planUrl = 'http://localhost:2100/yourPlants/plan';
+  planUrl = 'http://localhost:2100/yourPlants/:id/plan';
+  userUrl = 'http://localhost:2100/users';
 
 
   constructor(private http: HttpClient) { }
+
+  //User
+  registerNewUser(user: User): Observable<User>{
+    return this.http.post<User>(this.userUrl, user);
+  }
+
+  checkIfExists(email: string): Observable<User>{
+    return this.http.get<User>(this.userUrl + '/' + email);
+  }
+
+  loginUser(email: string, password: string): Observable<any>{
+    return this.http.post<User>(this.userUrl+ '/login/' + email, { password: password });
+  }
 
   // PLANTS
   getAllCards(): Observable<Card[]>{

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { BackendService } from '../shared/backend.service';
+import {AuthService} from "../shared/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -9,24 +12,32 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class LoginComponent {
   hide = true;
 
-  registerForm = this.fb.group({
-    firstName: [null, Validators.required],
-    lastName: [null, Validators.required],
-    email: [null, Validators.required, Validators.email],
-    password: [null, Validators.compose([
-      Validators.required, Validators.minLength(8), Validators.maxLength(20)])
-    ],
-    role: [null, Validators.required],
+  loginForm = this.fb.group({
+    email: [null, Validators.required],
+    password: [null, Validators.required]
   });
 
-  roles = [
-    {name: 'Admin', abbreviation: 'admin'},
-    {name: 'User', abbreviation: 'user'}
-  ];
-
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,
+              private bs: BackendService,
+              private auth: AuthService,
+              private router: Router) {}
 
   onSubmit(): void {
-    alert('Login war erfolgreich!');
+    const values = this.loginForm.value;
+    const email = values.email;
+    const password =  values.password;
+
+    this.bs.loginUser(email, password).subscribe(
+      response => {
+        console.log('response',response);
+        this.auth.login(response);
+        this.router.navigateByUrl('/yourPlants');
+      },
+      error => {
+        console.log('error', error);
+        console.log('error status', error.status);
+        console.log('error error message', error.error.error);
+        this.auth.logout();
+      })
   }
 }

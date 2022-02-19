@@ -3,10 +3,10 @@ const cors = require('cors');
 const routesPlan = require('./routes/routesPlan');
 const routesCard = require('./routes/routesCard');
 const routesUsers = require('./routes/routesUsers');
+const db = require('./db');
 
 const mongoose = require('mongoose');
 require('dotenv').config();
-
 const app = express();
 const PORT = 2100;
 
@@ -19,9 +19,8 @@ dann wählen Sie nicht app.use(cors());, sondern
 app.get("/", cors(), (req, res) => {
     res.json({ message: "Hello FIW!" });
 });*/
-app.use('/initdb', initDB);
-app.use('/plan', routesPlan);
-app.use('/YourPlants', routesCard);
+app.use('/', routesPlan);
+app.use('/', routesCard);
 app.use('/users', routesUsers);
 
 app.listen(PORT, (error) => {

@@ -1,9 +1,7 @@
 .main-div {
   height: 100%;
   padding: 5%;
-  background-color: #A6B592;
-  background-image: url("../../assets/imagesProjekt/bg7.png");
-  background-size: 50%;
+  background-color: transparent;
 }
 
 .matcard-styling {

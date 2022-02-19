@@ -7,9 +7,7 @@
 .main-div {
   height: 100%;
   padding: 5%;
-  background-color: #A6B592;
-  background-image: url("../../assets/imagesProjekt/bg7.png");
-  background-size: 50%;
+  background-color: transparent;
 }
 
 .matcard-styling {
@@ -44,7 +42,7 @@
 
 .title-styling {
   padding-bottom: 5px;
-  font-family: Impact !important;
+  font-family: "Avenir Next" !important;
   font-size: 55px;
   line-height: 55px;
   color: white;

@@ -1,28 +1,13 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport>
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item [routerLink]="'/'"></a>
-      <a mat-list-item [routerLink]="'/register'">Register</a>
-      <a mat-list-item [routerLink]="'/login'">Login</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
     <mat-toolbar color="primary">
       <div>
-        <div mat-button class="logo-styling" [routerLink]="'/'">
-          <span>YOUR PLAN</span>
-          <img src="../../../assets/imagesProjekt/kaktus2.png" style="width:30px">
-          <span>ER</span>
-        </div>
+        <span class="logo-styling" [routerLink]="'/'">YOUR PLANTER</span>
         <div class="right" >
-          <button mat-button class="button-styling" [routerLink]="'/register'">Register</button>
-          <button mat-button class="button-styling" [routerLink]="'/login'">Login</button>
+          <button mat-button class="register-button" [routerLink]="'/register'">Register</button>
+          <button mat-button class="login-button" [routerLink]="'/login'">Login</button>
         </div>
       </div>
-
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
-  </mat-sidenav-content>
 </mat-sidenav-container>

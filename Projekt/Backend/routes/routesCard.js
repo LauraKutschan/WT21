@@ -35,7 +35,7 @@ router.get('/yourPlants/:id', async(req, res) => {
     } catch {
         res.status(404);
         res.send({
-            error: "Plan does not exist!"
+            error: "Card does not exist!"
         });
     }
 })
