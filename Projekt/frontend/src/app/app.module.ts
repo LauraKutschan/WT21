@@ -21,7 +21,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import {NavComponent} from "./nav/nav.component";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { PlanterComponent } from './planter/planter.component';
 import { InfoComponent } from './info/info.component';
 import { DetailedComponent } from './detailed/detailed.component';
@@ -34,6 +34,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { AlreadyExistsDialogComponent } from './register/already-exists-dialog/already-exists-dialog.component';
 import { RegistrationSucceededComponent } from './register/registration-succeeded/registration-succeeded.component';
 import { PopularPlantsComponent } from './popular-plants/popular-plants.component';
+import {TokenInterceptorService} from "./shared/token-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -75,7 +76,13 @@ import { PopularPlantsComponent } from './popular-plants/popular-plants.componen
     MatNativeDateModule,
     MatDialogModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

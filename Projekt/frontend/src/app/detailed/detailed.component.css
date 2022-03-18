@@ -1,59 +1,37 @@
-.main-div {
-  height: 100%;
-  padding: 5%;
-  background-color: transparent;
+ngb-carousel {
+  max-width: 700px;
+  margin: 50px auto;
 }
-
-.matcard-styling {
-  height: 100%;
+ngb-carousel img {
   width: 100%;
-  background-color: transparent;
-  margin: auto;
+  outline: none;
+}
+ngb-carousel {
+  width: inherit;
+  height: inherit;
+}
+.carousel-inner {
+  overflow: visible;
+}
+.carousel-item {
+  display: flex !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s ease-in-out, visibility 1.2s;
+  z-index: -1;
+}
+.carousel-item.active{
+  opacity: 1;
+  visibility: visible;
+  z-index: 10;
+}
+.carousel-control-prev {
+  z-index: 20;
 }
 
-
-.matcard-styling2 {
-  height: 100%;
-  width: 80%;
-  background-color: rgba(40, 49, 36, 0.8);
-  margin: auto;
+.carousel-control-next {
+  z-index: 20;
 }
-
-
-.tile-styling {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.content-styling {
-  font-family: "Avenir Next" !important;
-  font-weight: lighter;
-  font-size: 30px;
-  line-height: 35px;
-  color: white;
-}
-
-.title-styling {
-  padding-bottom: 5px;
-  font-family: Impact !important;
-  font-size: 55px;
-  line-height: 55px;
-  color: white;
-  text-align: center;
-}
-
-.gif-styling {
-  position: absolute;
-  bottom: 30px;
-  right: 10px;
-}
-
-
-@media screen and (min-width: 1270px) {
-  .gif-styling {
-    position: absolute;
-    bottom: -80px;
-    right: 10px;
-  }
+.carousel-indicators{
+  z-index: 20;
 }

@@ -24,7 +24,8 @@ const routes: Routes = [
   },
   {
     path: 'yourPlants/:id/plan',
-    component: PlanterComponent
+    component: PlanterComponent,
+    canActivate: [AuthguardGuard]
   },
   {
     path: 'yourPlants',

@@ -3,8 +3,9 @@
       <div>
         <span class="logo-styling" [routerLink]="'/'">YOUR PLANTER</span>
         <div class="right" >
-          <button mat-button class="register-button" [routerLink]="'/register'">Register</button>
-          <button mat-button class="login-button" [routerLink]="'/login'">Login</button>
+          <button mat-button class="register-button" *ngIf="isLoggedIn==false" [routerLink]="'/register'">Register</button>
+          <button mat-button class="login-button" *ngIf="isLoggedIn==false" [routerLink]="'/login'">Login</button>
+          <button mat-button class="register-button" *ngIf="isLoggedIn==true" [routerLink]="'/'">Logout</button>
         </div>
       </div>
     </mat-toolbar>

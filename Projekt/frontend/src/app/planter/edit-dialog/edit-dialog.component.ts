@@ -11,7 +11,7 @@ import {Card} from "../../shared/card";
 
 export class EditDialogComponent implements OnInit {
 
-  card: Card = {_id: '', plant: ''};
+  card: Card = {_id: '', plant: '', user_id: ''};
   plantCardOld: string = '';
   unnamed: boolean = false;
   text: string = '';

@@ -37,7 +37,12 @@ export class BackendService {
   }
 
   getOneCard(id: string): Observable<Card>{
-    return this.http.get<Card>(this.cardUrl + '/' + id);
+    return this.http.get<Card>(this.cardUrl + '/plant/' + id);
+  }
+
+  getAllCardsToUser(user_id: string): Observable<Card[]>{
+    console.log("backend.service aufgerufen");
+    return this.http.get<Card[]>(this.cardUrl + '/' + user_id);
   }
 
   add(data: Card): Observable<Card> {

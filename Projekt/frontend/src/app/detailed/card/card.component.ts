@@ -3,6 +3,7 @@ import {Card} from "../../shared/card";
 import {ActivatedRoute, Router} from "@angular/router";
 import {BackendService} from "../../shared/backend.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AuthService} from "../../shared/auth.service";
 
 @Component({
   selector: 'app-card',
@@ -11,33 +12,42 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class CardComponent implements OnInit {
   cards!: Card[];
-  card: Card = {_id: '', plant: ''};
+  card: Card = {_id: '', plant: '', user_id: ''};
   id: string = '';
   deleted = false;
-
+  user_id: string | undefined = '';
 
   constructor( private route: ActivatedRoute,
                private bs: BackendService,
                private fb: FormBuilder,
-               private router: Router
+               private router: Router,
+               private auth: AuthService,
   )
   {}
 
   ngOnInit(): void {
+    console.log(this.auth.getUser()?._id);
+    this.user_id = this.auth.getUser()?._id;
     this.readAll();
   }
 
   readAll(): void {
-    console.log("readAll aufgerufen");
-    this.bs.getAllCards().subscribe(
-      (
-        response: Card[]) => {
-        this.cards = response;
-        console.log("Alle Karten: " + this.cards);
-        return this.cards;
-      },
-      error => console.log(error)
-    );
+    console.log("readAll aufgerufen " + this.user_id);
+    if (this.user_id != null) {
+      this.bs.getAllCardsToUser(this.user_id).subscribe(
+        (
+          response: Card[]) => {
+          if(response == null) {
+            console.log('response ist null');
+           } else {
+            this.cards = response;
+          }
+          console.log("All Cards to User: " + this.cards);
+          return this.cards;
+        },
+        error => console.log(error)
+      );
+    }
   }
 
   delete(id: string): void {
@@ -60,17 +70,20 @@ export class CardComponent implements OnInit {
   }
 
   add(): void {
-    this.card.plant = 'Benenne deine Pflanze';
-    console.log('Vorher: ' + this.card.plant);
-    this.bs.add(this.card).subscribe(
-      response => {
-        console.log('Nachher: ' + this.card.plant);
-        this.card = response;
-        this.cards.push(this.card);
-    },
-    error => {
-      console.log(error);
-    });
+    if (this.user_id != null) {
+      this.card.plant = 'Benenne deine Pflanze';
+      this.card.user_id = this.user_id;
+      this.bs.add(this.card).subscribe(
+        response => {
+          console.log(response);
+          this.card = response;
+          console.log('Card: ' + this.card.plant + this.card.user_id);
+          this.cards.push(this.card);
+        },
+        error => {
+          console.log(error);
+        });
+    }
   }
 
   reload(deleted: boolean) {
