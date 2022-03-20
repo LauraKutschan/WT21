@@ -1,0 +1,33 @@
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 1%;
+}
+
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-family: Impact;
+}
+
+main {
+    margin: 5%;
+}
+
+footer {
+    position: fixed;
+    background-color: white;
+    padding: 2%;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: grey;
+    text-align: center;
+}
+
+h7 {
+    color: grey;
+}

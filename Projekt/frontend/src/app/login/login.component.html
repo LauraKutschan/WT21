@@ -1,4 +1,4 @@
-<form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Login</mat-card-title>
@@ -8,15 +8,15 @@
         <mat-form-field class="full-width" appearance="standard">
           <mat-label>E-Mail</mat-label>
           <input matInput placeholder="E-Mail" formControlName="email">
-          <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
-            E-mail <strong>erforderlich</strong>
+          <mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+            E-Mail <strong>erforderlich</strong>
           </mat-error>
         </mat-form-field>
       </p>
       <p>
         <mat-form-field class="full-width" appearance="standard">
           <mat-label>Passwort</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'">
+          <input matInput placeholder="Passwort" formControlName="password" [type]="hide ? 'password' : 'text'">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
@@ -24,7 +24,7 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">login</button>
+      <button mat-raised-button color="primary" type="submit">Login</button>
     </mat-card-actions>
   </mat-card>
 </form>

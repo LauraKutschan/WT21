@@ -3,4 +3,5 @@ export interface Plan {
   plant: string;
   date: string;
   activity: string;
+  idPlant: string;
 }

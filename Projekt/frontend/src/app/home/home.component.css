@@ -1,76 +1,123 @@
-
 .main-div {
   height: 100%;
-  padding: 5%;
-  background-color: #A6B592;
-  background-image: url("../../assets/imagesProjekt/bg7.png");
-  background-size: 50%;
+  background-color: transparent;
 }
 
-.matcard-styling {
+.landing-part {
+  background-image: url("https://images.unsplash.com/photo-1527341944416-23e85b614715?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.titel {
+  color: white;
+  width: 50%;
+  font-family: "Avenir";
+  font-weight: lighter;
+  font-size: 50px;
+  line-height: 70px;
+  position: absolute;
+  top: 400px;
+  left: 100px;
+}
+
+.ueber-uns {
+  align-content: center;
+}
+
+.ueber-uns-matcard {
+  background-color: transparent;
+  box-shadow: none !important;
+  width: 40%;
+  height: 60%;
+}
+
+.ueber-uns-mat-card-title {
+  font-size: 90px;
+  line-height: 110px;
+  word-wrap: break-word;
+}
+
+
+.img {
   height: 70%;
-  width: 80%;
-  background-color: rgba(40, 49, 36, 0.8);
-  margin: auto;
+  width: 40%;
+  background-image: url("https://images.unsplash.com/photo-1598114335739-c36310a137ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fHBsYW50c3xlbnwwfDB8MHx8&auto=format&fit=crop&w=800&q=60");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 5%;
 }
 
+.mat-card-img {
+  display: none;
+}
 
-.img-styling {
+.planter-button {
+  text-align: center;
+  border-radius: 25px;
+  color: white;
+  background-color: rgba(0, 80, 0, 0.5);
+  padding: 1%;
+  width: 50%;
+  font-weight: lighter;
+}
+
+.planter-button:hover {
+  background-color: rgba(0, 10, 0, 0.5);
+}
+
+.ueber-uns-img {
   height: 70%;
-  width: 85%;
-  margin-bottom: 20%;
+  width: 40%;
+  background-image: url("https://images.unsplash.com/photo-1601985705806-5b9a71f6004f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGxhbnRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 5%;
 }
 
-.gif-styling {
-  margin-left: 40%;
-  margin-top: -8%;
+
+@media screen and (max-width: 750px) {
+  .img {
+    display: none;
+  }
+
+  .ueber-uns-img {
+    display: none;
+  }
+
+  .mat-card-img {
+    display: flex;
+  }
+
+  .ueber-uns-matcard {
+    text-align: center;
+    width: 80%;
+    height: 80%;
+  }
+
+  .ueber-uns-mat-card-title {
+    font-size: 70px;
+    line-height: 80px;
+    word-wrap: break-word;
+  }
 }
 
-.tile-styling {
-  display: flex;
-  justify-content: center;
+@media screen and (max-width: 1144px){
+  .titel {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .titel-planter {
+    font-size: 50px;
+    line-height: 60px;
+  }
+}
+
+.pflanzenarten {
+  background-image: url("https://images.unsplash.com/photo-1477554193778-9562c28588c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGxhbnRzfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60");
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-content: center;
   align-items: center;
 }
-
-.content-styling {
-  font-family: "Avenir Next" !important;
-  font-weight: lighter;
-  font-size: 30px;
-  line-height: 35px;
-  color: white;
-}
-
-.title-styling {
-  padding-bottom: 5px;
-  font-family: Impact !important;
-  font-size: 55px;
-  line-height: 55px;
-  color: white;
-}
-
-.spacer {
-  height: 5%;
-}
-
-mat-card:hover {
-  height: 75%;
-  width: 85%;
-  display: block;
-}
-
-@media screen and (max-width: 900px) {
-  .content-styling {
-    font-size: 10px;
-    line-height: 15px;
-  }
-
-  .title-styling {
-    padding-bottom: 5px;
-    font-size: 40px;
-    line-height: 45px;
-  }
-}
-
-
-
-

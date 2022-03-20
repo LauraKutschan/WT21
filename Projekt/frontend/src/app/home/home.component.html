@@ -1,37 +1,45 @@
 <!-- Photo Grid -->
 <div class="main-div">
-  <mat-grid-list cols="10" rowHeight="10%">
-    <mat-grid-tile class="tile-styling" [colspan]="6" [rowspan]="4">
-      <mat-card [routerLink]="'/info'" class="matcard-styling">
-        <mat-card-title class="title-styling">PFLANZENTYPEN</mat-card-title>
-        <mat-card-content class="content-styling">
-          WIR VERHELFEN DIR ZUR OPTIMALEN PFLEGE DEINER LIEBLINGSPFLANZE
+  <mat-grid-list cols="1" rowHeight="48%">
+
+    <mat-grid-tile class="landing-part" [colspan]="1">
+      <div class="titel">MACHE DEINE PFLANZEN GLÜCKLICH</div>
+    </mat-grid-tile>
+
+    <mat-grid-tile class="ueber-uns" [colspan]="1">
+      <div class="img"></div>
+      <mat-card class="ueber-uns-matcard">
+        <mat-card-title class="ueber-uns-mat-card-title">Dein Planter</mat-card-title>
+        <mat-card-content>
+          <p>Wir sind hier, um dir bei deiner Pflanzenpflege zu helfen. Mit uns kannst du deine Pflegeroutine tracken und dir Informationen zu deiner Pflanze anschauen.</p>
         </mat-card-content>
+        <img class="mat-card-img" mat-card-image src="../../assets/imagesProjekt/gruenpflanze.jpg" width="100px" alt="Photo of a Plant">
+        <mat-card-actions>
+          <button class="planter-button" [routerLink]="'/yourPlants'" mat-button>Hier gehts zum Planter</button>
+        </mat-card-actions>
       </mat-card>
     </mat-grid-tile>
 
-    <mat-grid-tile class="tile-styling" [colspan]="4" [rowspan]="4">
-      <div class="img-styling">
-        <img src="../../../assets/imagesProjekt/IMG_1208.JPG" style="width:100%">
-      </div>
+
+    <mat-grid-tile class="pflanzenarten" [colspan]="1">
+      <app-popular-plants></app-popular-plants>
     </mat-grid-tile>
 
-    <mat-grid-tile class="spacer" [colspan]="10" [rowspan]="1"></mat-grid-tile>
 
-    <mat-grid-tile class="tile-styling" [colspan]="4" [rowspan]="4">
-      <div class="img-styling">
-        <img src="../../../assets/imagesProjekt/IMG_1212.JPG" style="width:100%">
-      </div>
-    </mat-grid-tile>
-
-    <mat-grid-tile class="tile-styling" [colspan]="6" [rowspan]="4">
-      <mat-card [routerLink]="'/yourPlants'" class="matcard-styling">
-        <mat-card-title class="title-styling">DEIN PLANTER</mat-card-title>
-        <mat-card-content class="content-styling">
-          tracke deine pesönliche Pflanzenroutine
+    <mat-grid-tile [colspan]="1">
+      <mat-card class="ueber-uns-matcard">
+        <mat-card-title class="ueber-uns-mat-card-title">Über Uns</mat-card-title>
+        <mat-card-content>
+          <p>Wir sind hier, um dir bei deiner Pflanzenpflege zu helfen. Mit uns kannst du deine Pflegeroutine tracken und dir Informationen zu deiner Pflanze anschauen.</p>
         </mat-card-content>
+        <img class="mat-card-img" mat-card-image src="../../assets/imagesProjekt/ceyda-ciftci-dDVU6D_6T80-unsplash.jpg" width="100px" alt="Photo of a Plant">
+        <mat-card-actions>
+          <button class="planter-button" [routerLink]="'/yourPlants'" mat-button>contact us</button>
+        </mat-card-actions>
       </mat-card>
+      <div class="ueber-uns-img"></div>
     </mat-grid-tile>
+
   </mat-grid-list>
 </div>
 

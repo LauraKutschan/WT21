@@ -2,10 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const routesPlan = require('./routes/routesPlan');
 const routesCard = require('./routes/routesCard');
+const routesUsers = require('./routes/routesUsers');
+const db = require('./db');
 
 const mongoose = require('mongoose');
 require('dotenv').config();
-
 const app = express();
 const PORT = 2100;
 
@@ -20,15 +21,7 @@ app.get("/", cors(), (req, res) => {
 });*/
 app.use('/', routesPlan);
 app.use('/', routesCard);
-
-
-// connect to mongoDB
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-    console.log('connected to DB');
-});
+app.use('/users', routesUsers);
 
 app.listen(PORT, (error) => {
     if (error) {

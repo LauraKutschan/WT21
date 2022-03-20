@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Plan} from "../shared/plan";
 import {BackendService} from "../shared/backend.service";
 import {ActivatedRoute} from "@angular/router";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Card} from "../shared/card";
+import {MatDialog} from "@angular/material/dialog";
+import {EditDialogComponent} from "./edit-dialog/edit-dialog.component";
 
 @Component({
   selector: 'app-planter',
@@ -12,36 +14,26 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class PlanterComponent implements OnInit {
   plans!: Plan[];
   plan!: Plan;
-  form: FormGroup;
+  selected: any;
 
-  id: string = '';
+  idCard: string = '';
+  plantCard: string = '';
 
   constructor( private route: ActivatedRoute,
                private bs: BackendService,
-               private fb: FormBuilder)
-  {
-    this.form = this.fb.group(
-      {
-        forenameControl: ['', Validators.required],
-        surnameControl: ['', Validators.required],
-        emailControl: ['', Validators.required],
-      }
-    );
-  }
+               public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    this.readAll();
-    this.id = this.route.snapshot.paramMap.get('id') || '';
-    this.readOne(this.id);
-    this.form.patchValue({
-      plantControl: this.plan?.plant,
-      dateControl: this.plan?.date,
-      activityControl: this.plan?.activity
-    });
+    this.idCard = this.route.snapshot.paramMap.get('id') || '';
+    console.log('Ausgabe der clickedCard: ' + this.idCard);
+
+    this.readClickedPlant(this.idCard);
+    console.log('Ausgabe der clickedCard: ' + this.idCard + ', ' + this.plantCard);
+    this.readAllToPlant();
   }
 
-  readAll(): void {
-    this.bs.getAllPlans().subscribe(
+  readAllToPlant(): void {
+    this.bs.getAllPlansToPlant(this.idCard).subscribe(
       (
         response: Plan[]) => {
         this.plans = response;
@@ -67,11 +59,27 @@ export class PlanterComponent implements OnInit {
     );
   }
 
-  update(): void {
-
+  readClickedPlant (id: string) {
+    this.bs.getOneCard(id).subscribe(
+      (response: Card) => {
+        this.plantCard = response.plant;
+        return this.plantCard;
+      },
+      error => console.log(error)
+    );
   }
 
-  cancel(): void {
+  openEditDialog () {
+    const dialogRef = this.dialog.open(EditDialogComponent, {
+      width: '400px',
+      data: {'idCard': this.idCard, 'plantCard': this.plantCard},
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if(result != null) {
+        this.plantCard = result;
+      }
+    });
   }
 }

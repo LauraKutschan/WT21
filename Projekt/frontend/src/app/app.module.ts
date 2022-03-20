@@ -21,12 +21,21 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import {NavComponent} from "./nav/nav.component";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { PlanterComponent } from './planter/planter.component';
 import { InfoComponent } from './info/info.component';
 import { DetailedComponent } from './detailed/detailed.component';
 import { CardComponent } from './detailed/card/card.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import { EditDialogComponent } from './planter/edit-dialog/edit-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { AlreadyExistsDialogComponent } from './register/already-exists-dialog/already-exists-dialog.component';
+import { RegistrationSucceededComponent } from './register/registration-succeeded/registration-succeeded.component';
+import { PopularPlantsComponent } from './popular-plants/popular-plants.component';
+import {TokenInterceptorService} from "./shared/token-interceptor.service";
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -39,29 +48,43 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     InfoComponent,
     DetailedComponent,
     CardComponent,
+    EditDialogComponent,
+    AlreadyExistsDialogComponent,
+    RegistrationSucceededComponent,
+    PopularPlantsComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatInputModule,
-        MatButtonModule,
-        MatSelectModule,
-        MatRadioModule,
-        MatCardModule,
-        ReactiveFormsModule,
-        MatGridListModule,
-        MatMenuModule,
-        MatIconModule,
-        LayoutModule,
-        MatToolbarModule,
-        MatSidenavModule,
-        MatListModule,
-        HttpClientModule,
-        MatCheckboxModule,
-        FormsModule
-    ],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatIconModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    HttpClientModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule,
+    IvyCarouselModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,4 +12,5 @@ export class DetailedComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
 }

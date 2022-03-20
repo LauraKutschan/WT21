@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import { Plan } from './plan';
 import { Card } from './card';
+import {User} from "./user";
 
 @Injectable({
   providedIn: 'root'
@@ -10,23 +11,43 @@ import { Card } from './card';
 
 export class BackendService {
   cardUrl = 'http://localhost:2100/yourPlants';
-  planUrl = 'http://localhost:2100/yourPlants/plan';
+  planUrl = 'http://localhost:2100/yourPlants/:id/plan';
+  userUrl = 'http://localhost:2100/users';
+
 
   constructor(private http: HttpClient) { }
 
+  //User
+  registerNewUser(user: User): Observable<User>{
+    return this.http.post<User>(this.userUrl, user);
+  }
+
+  checkIfExists(email: string): Observable<User>{
+    return this.http.get<User>(this.userUrl + '/' + email);
+  }
+
+  loginUser(email: string, password: string): Observable<any>{
+    return this.http.post<User>(this.userUrl+ '/login/' + email, { password: password });
+  }
+
   // PLANTS
-  getAllPlants(): Observable<Card[]>{
+  getAllCards(): Observable<Card[]>{
     console.log("backend.service aufgerufen");
     return this.http.get<Card[]>(this.cardUrl);
   }
 
-  getOnePlant(id: string): Observable<Card>{
-    return this.http.get<Card>(this.cardUrl + '/' + id);
+  getOneCard(id: string): Observable<Card>{
+    return this.http.get<Card>(this.cardUrl + '/plant/' + id);
   }
 
-  add(card: Card): Observable<Card> {
-    console.log('backend add aufgerufen: ' + card);
-    return this.http.post<Card>(this.cardUrl, card);
+  getAllCardsToUser(user_id: string): Observable<Card[]>{
+    console.log("backend.service aufgerufen");
+    return this.http.get<Card[]>(this.cardUrl + '/' + user_id);
+  }
+
+  add(data: Card): Observable<Card> {
+    console.log('backendanbindung add aufgerufen: ' + data);
+    return this.http.post<Card>(this.cardUrl, data);
   }
 
   update(id: string, data: Card): Observable<Card> {
@@ -38,6 +59,8 @@ export class BackendService {
   }
 
 
+
+
   //PLANS
   getAllPlans(): Observable<Plan[]>{
     return this.http.get<Plan[]>(this.planUrl);
@@ -46,4 +69,9 @@ export class BackendService {
   getOnePlan(id: string): Observable<Plan>{
     return this.http.get<Plan>(this.planUrl + '/' + id);
   }
+
+  getAllPlansToPlant(id: string): Observable<Plan[]>{
+    return this.http.get<Plan[]>(this.cardUrl + '/' + id + '/plan');
+  }
+
 }
