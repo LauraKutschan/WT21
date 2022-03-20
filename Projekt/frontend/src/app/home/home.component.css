@@ -42,7 +42,7 @@
 .img {
   height: 70%;
   width: 40%;
-  background-image: url("src/assets/imagesProjekt/gruenpflanze.jpg");
+  background-image: url("https://images.unsplash.com/photo-1598114335739-c36310a137ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fHBsYW50c3xlbnwwfDB8MHx8&auto=format&fit=crop&w=800&q=60");
   background-repeat: no-repeat;
   background-size: cover;
   margin-right: 5%;
@@ -115,7 +115,7 @@
 }
 
 .pflanzenarten {
-  background-image: url("../../assets/imagesProjekt/alex-perri-bmM_IdLd1SA-unsplash.jpg");
+  background-image: url("https://images.unsplash.com/photo-1477554193778-9562c28588c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGxhbnRzfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=800&q=60");
   background-repeat: no-repeat;
   background-size: cover;
   align-content: center;

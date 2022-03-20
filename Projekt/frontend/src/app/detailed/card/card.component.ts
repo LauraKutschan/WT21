@@ -16,14 +16,14 @@ export class CardComponent implements OnInit {
   id: string = '';
   deleted = false;
   user_id: string | undefined = '';
+  slideIndex: number = 1;
 
   constructor( private route: ActivatedRoute,
                private bs: BackendService,
                private fb: FormBuilder,
                private router: Router,
                private auth: AuthService,
-  )
-  {}
+  ) {}
 
   ngOnInit(): void {
     console.log(this.auth.getUser()?._id);
@@ -42,8 +42,6 @@ export class CardComponent implements OnInit {
            } else {
             this.cards = response;
           }
-          console.log("All Cards to User: " + this.cards);
-          return this.cards;
         },
         error => console.log(error)
       );
@@ -86,8 +84,10 @@ export class CardComponent implements OnInit {
     }
   }
 
-  reload(deleted: boolean) {
+  reload(deleted: boolean): void {
     this.deleted = deleted;
     this.readAll();
   }
+
+
 }

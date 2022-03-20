@@ -2,23 +2,29 @@
   align-content: center;
 }
 
-.pflanzenarten-img {
-  width: 20%;
-  margin: 0 auto auto auto;
-}
-
 .pflanzenarten-matcard {
   display: flex;
-  margin: 40px auto;
+  margin: 20px auto;
   width: 80%;
   border-radius: 10px;
+}
+
+mat-card-title {
+  font-size: 25px;
+  line-height: 30px;
+  margin-bottom: 15px;
+}
+
+mat-card-content {
+  font-size: 20px;
+  line-height: 25px;
 }
 
 .text {
   padding: 10px;
 }
 
-@media screen and (min-width: 788px) {
+@media screen and (min-width: 844px) {
   .grid-container {
     display: grid;
     grid-template-columns: 25% 25% 25%;
@@ -33,9 +39,15 @@
     width: 100%;
   }
 
-  .pflanzenarten-img {
-    width: 100%;
-    margin: 0 auto;
+  mat-card-title {
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 15px;
+  }
+
+  mat-card-content {
+    font-size: 20px;
+    line-height: 35px;
   }
 
   .item1 {

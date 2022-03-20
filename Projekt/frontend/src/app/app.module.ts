@@ -35,6 +35,7 @@ import { AlreadyExistsDialogComponent } from './register/already-exists-dialog/a
 import { RegistrationSucceededComponent } from './register/registration-succeeded/registration-succeeded.component';
 import { PopularPlantsComponent } from './popular-plants/popular-plants.component';
 import {TokenInterceptorService} from "./shared/token-interceptor.service";
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import {TokenInterceptorService} from "./shared/token-interceptor.service";
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
+    IvyCarouselModule
   ],
   providers: [
     {
