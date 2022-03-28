@@ -1,3 +1,20 @@
+# Gliederung
+
+1. YOUR PLANTER
+   1. Registrierung und Login
+   2. Komponente "Plan(t)er"
+   3. Komponente „Pflanze“
+2. Run the Project
+   1. Frontend
+      1. Development server
+      2. Code scaffolding
+      3. Build
+      4. Running unit tests
+      5. Running end-to-end tests
+      6. Further help
+   2. Backend
+
+
 # YOUR PLANTER
 
 YOUR PLANTER dient dazu die Pflegeroutine deiner Pflanzen festzuhalten.
