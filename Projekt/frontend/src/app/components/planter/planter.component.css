@@ -1,0 +1,187 @@
+.main-div {
+  height: 100%;
+  background-color: transparent;
+  font-family: "Avenir";
+  font-weight: lighter;
+}
+
+.landing-part {
+  text-align: center;
+}
+
+.plant-title {
+  font-size: 6vw;
+  line-height: 6.5vw;
+  word-break: break-word ;
+  width: 80%;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.wasser-tile {
+  background-color: #A0BEA0;
+}
+
+.duenger-tile {
+  background-color: #B3CBB3 ;
+}
+
+.umtopfen-tile {
+  background-color: #C1D5C1;
+}
+
+.activity-matcard {
+  height: 80%;
+  width: 90%;
+  background-color: transparent;
+  color: white;
+  box-shadow: none;
+}
+
+.activity-alignment-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.edit-matcard {
+  background-color: transparent;
+  box-shadow: none !important;
+  width: 90%;
+  height: 90%;
+  text-align: center;
+}
+
+.edit-title {
+  font-size: 60px;
+  margin-bottom: 80px;
+}
+
+.d-cell {
+  width: 70% !important;
+  height: 70% !important;
+  justify-self: center;
+  color: white;
+  font-size: 3vw;
+  line-height: 3.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Avenir";
+  font-weight: lighter;
+}
+
+.edit-content {
+  display: grid;
+  column-gap: 10px;
+  row-gap: 5px;
+  grid-template-columns: auto auto;
+  width: 80% !important;
+  height: 80% !important;
+  margin: auto;
+}
+
+.scrollable-div {
+  margin-top: 10px;
+  height: 450px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.entry-matcard {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.add-matcard {
+  margin-bottom: 10px;
+  text-align: center;
+  color: #80A880;
+}
+
+.add-matcard:hover {
+  color: green;
+  cursor: pointer;
+}
+
+.cancel-button {
+  float: right;
+}
+
+.cancel-button:hover {
+  cursor: pointer;
+}
+
+.wasser {
+  background-color: mediumpurple;
+}
+
+.dünger {
+  background-color: sandybrown;
+}
+
+.umtopfen {
+  background-color: cadetblue;
+}
+
+.alles {
+  background-color: indianred;
+}
+
+.d-cell:hover {
+  background-color: #80A880;
+  cursor: pointer;
+}
+
+.arrow-down {
+  color: white;
+  font-size: 80px;
+  cursor: pointer;
+}
+
+
+.bounce-animation {
+  color: #80A880;
+  font-size: 8vw;
+  position: absolute;
+  left: 45%;
+  bottom: 25%;
+  animation-name: arrow;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes arrow {
+  0%   {color: #80A880; bottom: 25%;}
+  75%  {color: #E6EEE6; bottom: 20%;}
+}
+
+.explained-matcard {
+  height: 85%;
+  margin-top: 10px;
+}
+
+.explained-content-font {
+  font-size: 2vw;
+  line-height: 2.5vw;
+}
+
+@media screen and (min-width: 1044px) {
+
+  .explained-content-font {
+    font-size: 1.6vw;
+    line-height: 2vw;
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  .explained-content-font {
+    font-size: 2.5vw;
+    line-height: 3vw;
+  }
+}

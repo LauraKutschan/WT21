@@ -1,0 +1,43 @@
+<div class="main-div">
+  <mat-grid-list cols="1" rowHeight="48%">
+
+    <mat-grid-tile class="landing-part" [colspan]="1">
+      <div class="titel">MACHE DEINE PFLANZEN GLÜCKLICH</div>
+    </mat-grid-tile>
+
+    <mat-grid-tile class="ueber-uns" [colspan]="1">
+      <div class="img"></div>
+      <mat-card class="ueber-uns-matcard">
+        <mat-card-title class="ueber-uns-mat-card-title">Dein Planter</mat-card-title>
+        <mat-card-content class="content-font">
+          <p>Dein Plan(t)er hilft dir bei deiner Pflanzenpflege. Mit ihm kannst du deine Pflegeroutine tracken und dir deine eingetragenen Informationen zu deiner Pflanze jederzeit anschauen.</p>
+        </mat-card-content>
+        <img class="mat-card-img" mat-card-image src="https://images.unsplash.com/photo-1598114335739-c36310a137ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fHBsYW50c3xlbnwwfDB8MHx8&auto=format&fit=crop&w=800&q=60" width="100px" alt="Photo of a Plant">
+        <mat-card-actions>
+          <button class="planter-button" [routerLink]="'/yourPlants'" mat-button>Hier gehts zum Planter</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile class="pflanzenarten" [colspan]="1">
+      <app-popular-plants></app-popular-plants>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile [colspan]="1">
+      <mat-card class="ueber-uns-matcard">
+        <mat-card-title class="ueber-uns-mat-card-title">Über Uns</mat-card-title>
+        <mat-card-content class="content-font">
+          <p>Was uns anspornt? Pflanzen schaffen reinere Luft und eine natürliche Atmosphäre in Wohnräumen.
+            Sie spenden uns Sauerstoff. Dafür ist es jedoch wichtig, die Bedürfnisse deiner Pflanze im Auge zu behalten.
+            Das machen wir mit deinem Planter möglich. </p>
+        </mat-card-content>
+        <img class="mat-card-img" mat-card-image src="../../../assets/imagesProjekt/ceyda-ciftci-dDVU6D_6T80-unsplash.jpg" width="100px" alt="Photo of a Plant">
+      </mat-card>
+      <div class="ueber-uns-img"></div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>
+

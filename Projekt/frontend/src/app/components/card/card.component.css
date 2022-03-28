@@ -1,0 +1,83 @@
+.main-div {
+  height: 92%;
+  width: 100%;
+  background-image: url("https://images.unsplash.com/photo-1582321339305-dc5581d33a84?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.icon-styling {
+  position:absolute;
+  right: 5%;
+  top: 40%;
+}
+
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+carousel {
+  padding: 10px;
+  height: 100% !important;
+  width: 100% !important
+}
+
+.carousel-cell {
+  height: 60% !important;
+}
+
+mat-card {
+  height: 60%;
+  margin: 10px;
+}
+
+mat-card-title {
+  font-size: 30px;
+  line-height: 35px;
+  word-break: break-word ;
+  width : 100%;
+  text-overflow:ellipsis;
+  overflow:hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.shadow-card {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.plant-button {
+  background-color: transparent;
+  font-size: 30px;
+  color: rgba(0, 80, 0, 0.5);
+  border: none;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.plant-button:hover {
+  color: rgba(0, 10, 0, 0.5);
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.add-icon {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.add-button {
+  background-color: rgba(0, 80, 0, 0.3);
+  color: white;
+}
+
+.add-button:hover {
+  background-color: rgba(0, 10, 0, 0.5);
+}
