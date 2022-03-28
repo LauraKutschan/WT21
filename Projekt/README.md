@@ -42,7 +42,7 @@ Das Gleiche auch für Dünger und Umtopfen.
 Ganz unten auf der Seite findest du vier Button. Die Button „Wasser-Einträge löschen“, „Dünger-Einträge löschen“ und „Umtopf-Einträge löschen“ dienen dazu jeweils ALLE Einträge dieser Kategorie auf einmal zu löschen.
 Mit dem Klick auf den Button „Pflanze löschen“ erscheint ein Dialogfenster, dass dich warnt. Wenn du dieses bestätigst, dann wird deine pflanze mit allen Einträgen gelöscht und du wirst auf die Planter-Komponente geleitet.
 
-![bild](./frontend/src/assets/images/bearbeiten.png)
+![bild](./frontend/src/assets/images/Bearbeiten.png)
 
 Noch einmal zur Übersicht:
 
