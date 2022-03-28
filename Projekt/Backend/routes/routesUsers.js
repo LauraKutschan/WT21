@@ -108,4 +108,14 @@ router.delete('/:id', async(req, res) => {
     }
 });
 
+// delete all users
+router.delete('/', async(req, res) => {
+    try {
+        await User.deleteMany()
+        res.status(204).send()
+    } catch {
+        res.status(404)
+        res.send({ error: "User does not exist!" })
+    }
+});
 module.exports = router;

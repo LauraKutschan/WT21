@@ -22,6 +22,9 @@
           </button>
         </mat-form-field>
       </p>
+      <p *ngIf="warning" style="color: red">
+        <mat-icon>error</mat-icon>
+        Benutzername oder Passwort falsch</p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit">Login</button>

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BackendService } from '../../shared/backend.service';
-import {AuthService} from "../../shared/auth.service";
-import {Router} from "@angular/router";
+import { AuthService } from "../../shared/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  warning: boolean = false;
   hide = true;
   loggedIn = false;
   loginForm = this.fb.group({
@@ -29,6 +30,7 @@ export class LoginComponent {
 
     this.bs.loginUser(email, password).subscribe(
       response => {
+        this.warning = false;
         this.auth.login(response);
         this.loggedIn = true;
         this.router.navigate(['/yourPlants'], {state: {data: {loggedIn: this.loggedIn}}});
@@ -37,6 +39,7 @@ export class LoginComponent {
         console.log('error', error);
         console.log('error status', error.status);
         console.log('error error message', error.error.error);
+        this.warning = true;
         this.auth.logout();
       })
   }

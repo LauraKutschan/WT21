@@ -16,7 +16,6 @@ export class AuthService {
   }
 
   login(user: User): void {
-    console.log(this.getToken())
     this.loggedIn = true;
     this.user = user;
   }
@@ -28,10 +27,6 @@ export class AuthService {
 
   getUser(): User | null {
     return this.user;
-  }
-
-  getToken() {
-    return localStorage.getItem('token');
   }
 
 }
