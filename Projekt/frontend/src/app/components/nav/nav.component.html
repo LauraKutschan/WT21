@@ -1,0 +1,14 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-toolbar color="primary">
+      <div>
+        <span class="logo-styling" [routerLink]="'/'">YOUR PLANTER</span>
+        <div class="right" >
+          <button mat-button class="register-button" *ngIf="!checkIfLoggedIn()" [routerLink]="'/register'">Register</button>
+          <button mat-button class="login-button" *ngIf="!checkIfLoggedIn()" [routerLink]="'/login'">Login</button>
+          <button mat-button class="register-button" *ngIf="checkIfLoggedIn()" [routerLink]="'/'" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet (change)="checkIfLoggedIn()"></router-outlet>
+</mat-sidenav-container>

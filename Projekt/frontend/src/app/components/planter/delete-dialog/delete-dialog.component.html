@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Willst du deine Pflanze "{{data.plantCard}}" wirklich löschen?</h1>
+<div mat-dialog-content>
+  <p>Wenn du deine Pflanze löschst, dann sind auch alle deine Einträge gelöscht.</p>
+  <p></p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" cdkFocusInitial>Abbrechen</button>
+  <button mat-button (click)="delete()">Löschen</button>
+</div>

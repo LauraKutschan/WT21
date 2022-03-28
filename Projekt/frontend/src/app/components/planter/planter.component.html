@@ -1,0 +1,113 @@
+
+<div class="main-div" xmlns="http://www.w3.org/1999/html">
+  <mat-grid-list cols="1" rowHeight="39%">
+
+    <mat-grid-tile class="landing-part" [colspan]="1">
+      <span (click)="openEditDialog()" class="plant-title">{{plantCard}}</span>
+      <mat-icon class="bounce-animation">keyboard_double_arrow_down</mat-icon>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile class="wasser-tile" [colspan]="1">
+      <mat-card class="activity-matcard">
+        <mat-card-title>Wasser</mat-card-title>
+        <mat-card-content>
+          <div class="activity-alignment-div">
+            <div class="scrollable-div">
+              <mat-card (click)="openAddDialog('Wasser')" class="add-matcard">
+                <mat-icon>add</mat-icon>
+              </mat-card>
+              <mat-card class="entry-matcard" *ngFor="let plan of wasserPlans">{{plan.date}}
+                <mat-icon class="cancel-button" (click)="delete(plan._id)">cancel</mat-icon>
+              </mat-card>
+              <mat-card *ngIf="wasserPlans.length == 0">Erstelle deinen ersten Eintrag.</mat-card>
+            </div>
+            <div>
+              <mat-card class="explained-matcard">
+                <mat-card-title>Erklärt</mat-card-title>
+                <mat-card-content class="explained-content-font">
+                  <p>Hier kannst du festhalten, wann du deine Pflanze gegossen hast. Du kannst neue Einträge mit dem Datum versehen und auch problemlos löschen.</p>
+                  <p style="font-weight: bolder">Warum ist gießen wichtig?</p>
+                  <p>Gießen ist wichtig, damit deine Pflanze Nährstoffe aufnehmen kann. Regelmäßiges und angemessenes Wässern hält deine Pflanze fit.</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile class="duenger-tile" [colspan]="1">
+      <mat-card class="activity-matcard">
+        <mat-card-title>Dünger</mat-card-title>
+        <mat-card-content>
+          <div class="activity-alignment-div">
+            <div class="scrollable-div">
+              <mat-card (click)="openAddDialog('Duenger')" class="add-matcard">
+                <mat-icon>add</mat-icon>
+              </mat-card>
+              <mat-card class="entry-matcard" *ngFor="let plan of duengerPlans">{{plan.date}}
+                <mat-icon class="cancel-button" (click)="delete(plan._id)">cancel</mat-icon>
+              </mat-card>
+              <mat-card *ngIf="duengerPlans.length == 0">Erstelle deinen ersten Eintrag.</mat-card>
+            </div>
+            <div>
+              <mat-card class="explained-matcard">
+                <mat-card-title>Erklärt</mat-card-title>
+                <mat-card-content class="explained-content-font">
+                  <p>Hier kannst du festhalten, wann du deine Pflanze gedüngt hast. Du kannst neue Einträge mit dem Datum versehen und auch problemlos löschen.</p>
+                  <p style="font-weight: bolder">Warum ist Düngen wichtig?</p>
+                  <p>Du solltest deine Pflanze in ihren natürlichen Wachstumszeiten düngen, damit sie ausreichend Nährstoffe aufnehmen kann und schneller wächst.</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile class="umtopfen-tile" [colspan]="1">
+      <mat-card class="activity-matcard">
+        <mat-card-title>Umtopfen</mat-card-title>
+        <mat-card-content>
+          <div class="activity-alignment-div">
+            <div class="scrollable-div">
+              <mat-card (click)="openAddDialog('Umtopfen')" class="add-matcard">
+                <mat-icon>add</mat-icon>
+              </mat-card>
+              <mat-card class="entry-matcard" *ngFor="let plan of umtopfPlans">
+                {{plan.date}}
+                <mat-icon class="cancel-button" (click)="delete(plan._id)">cancel</mat-icon>
+              </mat-card>
+              <mat-card *ngIf="umtopfPlans.length == 0">Erstelle deinen ersten Eintrag.</mat-card>
+            </div>
+            <div>
+              <mat-card class="explained-matcard">
+                <mat-card-title>Erklärt</mat-card-title>
+                <mat-card-content class="explained-content-font">
+                  <p>Hier kannst du festhalten, wann du deine Pflanze umgetopft hast. Du kannst neue Einträge mit dem Datum versehen und auch problemlos löschen.</p>
+                  <p style="font-weight: bolder">Warum ist Umtopfen wichtig?</p>
+                  <p>Wenn der Topf komplett durchwurzelt oder zu klein ist, wächst deine Pflanzen nicht optimal weiter. Durch das Umtopfen wird die Standfestigkeit verbessert und ein einseitiges Wachstum verhindert.</p>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+
+    <mat-grid-tile [colspan]="1">
+      <div class="edit-matcard">
+        <h1 class="edit-title">Bearbeiten</h1>
+        <div class="edit-content">
+            <mat-card class="d-cell wasser" (click)="openDeleteEntriesDialog('Wasser')">Wasser-Einträge löschen</mat-card>
+            <mat-card class="d-cell dünger" (click)="openDeleteEntriesDialog('Duenger')">Dünger-Einträge löschen</mat-card>
+            <mat-card class="d-cell umtopfen" (click)="openDeleteEntriesDialog('Umtopfen')">Umtopf-Einträge löschen</mat-card>
+            <mat-card class="d-cell alles" (click)="openDeleteDialog()">Pflanze löschen</mat-card>
+        </div>
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>

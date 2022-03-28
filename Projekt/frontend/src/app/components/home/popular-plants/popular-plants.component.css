@@ -1,0 +1,68 @@
+.div-container {
+  align-content: center;
+}
+
+.pflanzenarten-matcard {
+  display: flex;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 10px;
+  height: 80%;
+}
+
+mat-card-title {
+  font-size: 25px;
+  line-height: 30px;
+  margin-bottom: 15px;
+}
+
+mat-card-content {
+  font-size: 20px;
+  line-height: 25px;
+}
+
+.text {
+  padding: 10px;
+}
+
+@media screen and (min-width: 844px) {
+  .div-container {
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    grid-gap: 10%;
+    width: 80%;
+    margin-left: 10%;
+    align-content: center;
+  }
+
+  .pflanzenarten-matcard {
+    display: block;
+    width: 100%;
+  }
+
+  mat-card-title {
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 15px;
+  }
+
+  mat-card-content {
+    font-size: 20px;
+    line-height: 35px;
+  }
+
+  .item1 {
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  .item2 {
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  .item3 {
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+}

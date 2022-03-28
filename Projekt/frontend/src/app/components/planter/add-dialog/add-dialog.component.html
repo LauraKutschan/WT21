@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Lege ein Datum fest:</h1>
+<div mat-dialog-content>
+  <p>
+    <mat-form-field appearance="fill">
+      <input matInput [(ngModel)]="this.date" [matDatepicker]="dp3" disabled>
+      <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+      <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+    </mat-form-field>
+  </p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Abbrechen</button>
+  <button mat-button (click)="save()" [disabled]="date === ''" cdkFocusInitial>Speichern</button>
+</div>

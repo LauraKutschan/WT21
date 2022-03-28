@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{text}}</h1>
+<div mat-dialog-content>
+  <p *ngIf="!unnamed">Benenne sie um: </p>
+  <mat-form-field appearance="fill">
+    <mat-label>Neuer Name</mat-label>
+    <input matInput [(ngModel)]="data.plantCard" >
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Abbrechen</button>
+  <button mat-button (click)="update()" [mat-dialog-close]="data.plantCard" cdkFocusInitial>Speichern</button>
+</div>

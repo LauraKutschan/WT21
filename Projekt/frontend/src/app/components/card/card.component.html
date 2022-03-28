@@ -1,0 +1,35 @@
+<div class="main-div">
+  <carousel>
+    <div class="carousel-cell" *ngFor="let card of cards">
+      <mat-card>
+        <mat-card-title>{{card.plant}}</mat-card-title>
+        <mat-card-content>
+          <button class="plant-button" [routerLink]="'/yourPlants/' + card._id + '/plan/'">❯❯❯</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="carousel-cell">
+      <mat-card class="add-button" (click)="add()">
+        <mat-icon class="add-icon">add</mat-icon>
+      </mat-card>
+    </div>
+
+    <div class="carousel-cell">
+      <mat-card class="shadow-card"></mat-card>
+    </div>
+    <div class="carousel-cell">
+      <mat-card class="shadow-card"></mat-card>
+    </div>
+    <div class="carousel-cell">
+      <mat-card class="shadow-card"></mat-card>
+    </div>
+    <div class="carousel-cell">
+      <mat-card class="shadow-card"></mat-card>
+    </div>
+    <div class="carousel-cell">
+      <mat-card class="shadow-card"></mat-card>
+    </div>
+  </carousel>
+</div>
+

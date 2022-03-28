@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { User } from './user';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   user!: User | null;
   loggedIn = false;
@@ -15,6 +16,7 @@ export class AuthService {
   }
 
   login(user: User): void {
+    console.log(this.getToken())
     this.loggedIn = true;
     this.user = user;
   }

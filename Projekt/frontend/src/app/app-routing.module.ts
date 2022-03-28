@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import {PlanterComponent} from "./planter/planter.component";
-import {InfoComponent} from "./info/info.component";
-import {DetailedComponent} from "./detailed/detailed.component";
-import {RegistrationSucceededComponent} from "./register/registration-succeeded/registration-succeeded.component";
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import {PlanterComponent} from "./components/planter/planter.component";
+import {RegistrationSucceededComponent} from "./components/register/registration-succeeded/registration-succeeded.component";
 import {AuthguardGuard} from "./guards/authguard.guard";
+import {CardComponent} from "./components/card/card.component";
 
 const routes: Routes = [
   {
@@ -29,12 +28,8 @@ const routes: Routes = [
   },
   {
     path: 'yourPlants',
-    component: DetailedComponent,
+    component: CardComponent,
     canActivate: [AuthguardGuard]
-  },
-  {
-    path: 'info',
-    component: InfoComponent
   },
   {
     path: 'registration',

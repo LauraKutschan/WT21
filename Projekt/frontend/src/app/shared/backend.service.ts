@@ -1,9 +1,9 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import { Plan } from './plan';
-import { Card } from './card';
-import {User} from "./user";
+import { Plan } from '../interfaces/plan';
+import { Card } from '../interfaces/card';
+import {User} from "../interfaces/user";
 
 @Injectable({
   providedIn: 'root'
@@ -73,5 +73,28 @@ export class BackendService {
   getAllPlansToPlant(id: string): Observable<Plan[]>{
     return this.http.get<Plan[]>(this.cardUrl + '/' + id + '/plan');
   }
+
+  getAllPlansToPlantAndActivity(id: string, activity: string): Observable<Plan[]>{
+    return this.http.get<Plan[]>(this.cardUrl + '/' + id + '/plan/' + activity);
+  }
+
+  addPlan(data: Plan): Observable<Plan> {
+    console.log('backendanbindung addPlan aufgerufen: ' + data);
+    return this.http.post<Plan>(this.planUrl, data);
+  }
+
+  deleteOnePlan(id: string): Observable<any>{
+    return this.http.delete<any>(this.planUrl + '/' + id, {observe: 'response'});
+  }
+
+  deleteAllPlansToActivity(id: string, activity: string): Observable<any>{
+    console.log('in deleteAllPlansToActivity : ' + activity);
+    return this.http.delete<any>(this.cardUrl + '/' + id + '/' + activity, {observe: 'response'});
+  }
+
+  deleteAllPlansToCard(id: string): Observable<any>{
+    return this.http.delete<any>(this.cardUrl + '/' + id + '/plan', {observe: 'response'});
+  }
+
 
 }
