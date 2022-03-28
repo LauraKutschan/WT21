@@ -1,4 +1,4 @@
-#YOUR PLANTER
+# YOUR PLANTER
 
 YOUR PLANTER dient dazu die Pflegeroutine deiner Pflanzen festzuhalten.
 Es geht darum, dass du für jede von dir angelegte Pflanze Daten eintragen kannst, an denen du sie gewässert, gedüngt oder umgetopft hast. So verlierst du nicht den Überblick.
@@ -6,13 +6,13 @@ Es geht darum, dass du für jede von dir angelegte Pflanze Daten eintragen kanns
 
 ![bild](./frontend/src/assets/images/planter.png)
 
-##Registrierung und Login
+## Registrierung und Login
 Du kannst dich registrieren und einloggen, um deinen eigenen Planter zu erhalten. So werden deine Daten immer gespeichert.
 
 ![bild](./frontend/src/assets/images/registration_succeeded.png)
 
 
-##Komponente „Plan(t)er“
+## Komponente „Plan(t)er“
 
 Wenn du eingeloggt bist, wirst du auf deine Planter-Seite geleitet.
 Dort kannst du eine neue Karte erstellen, indem du auf die Karte mit dem Plus drückst.
@@ -20,7 +20,7 @@ Es erscheint eine neue Karte, die du nun umbenennen solltest. Die Pfeile rechts 
 
 ![bild](./frontend/src/assets/images/plant.png)
 
-##Komponente „Pflanze“
+## Komponente „Pflanze“
 
 Wenn du nun auf den Namen „Benenne deine Pflanze“ klickst, erscheint ein Dialogfenster, worin du deinen Pflanzennamen festlegen kannst.
 Mit dem Klick auf "Speichern" hast du nun deine erste Pflanze benannt.
@@ -51,7 +51,7 @@ Noch einmal zur Übersicht:
 Wenn du dich nun ausloggst, wirst du auf die Startseite geleitet.
 
 
-#Run the Project
+# Run the Project
 
 At first run `npm install` in the Project directory.
 
