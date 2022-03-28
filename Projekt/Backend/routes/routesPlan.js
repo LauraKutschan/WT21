@@ -5,7 +5,6 @@ const Plan = require('../models/plan');
 // get all Plans
 router.get('/yourPlants/plan', async(req, res) => {
     const allPlans = await Plan.find();
-    console.log(allPlans);
     res.send(allPlans);
 });
 
@@ -24,7 +23,6 @@ router.post('/yourPlants/:id/plan', async(req, res) => {
 router.get('/yourPlants/plan/:id', async(req, res) => {
     try {
         const plan = await Plan.findOne({ _id: req.params.id });
-        console.log(req.params);
         res.send(plan);
     } catch {
         res.status(404);
@@ -38,7 +36,6 @@ router.get('/yourPlants/plan/:id', async(req, res) => {
 router.get('/yourPlants/:id/plan', async(req, res) => {
     try {
         const plan = await Plan.find({ idPlant: req.params.id });
-        console.log(req.params);
         res.send(plan);
     } catch {
         res.status(404);
@@ -81,7 +78,6 @@ router.delete('/yourPlants/:id/:activity', async(req, res) => {
         await Plan.deleteMany({ idPlant: req.params.id, activity: req.params.activity });
         res.status(204).send()
     } catch {
-        console.log(req.params.activity);
         res.status(404)
         res.send({ error: req.params.id })
     }
@@ -91,6 +87,17 @@ router.delete('/yourPlants/:id/:activity', async(req, res) => {
 router.delete('/yourPlants/:id/plan', async(req, res) => {
     try {
         await Plan.deleteMany({ idPlant: req.params.id });
+        res.status(204).send()
+    } catch {
+        res.status(404)
+        res.send({ error: req.params.id })
+    }
+});
+
+// delete all Plans
+router.delete('/yourPlants/plan', async(req, res) => {
+    try {
+        await Plan.deleteMany();
         res.status(204).send()
     } catch {
         res.status(404)

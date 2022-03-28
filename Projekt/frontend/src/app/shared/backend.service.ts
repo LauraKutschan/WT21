@@ -18,6 +18,7 @@ export class BackendService {
   constructor(private http: HttpClient) { }
 
   //User
+
   registerNewUser(user: User): Observable<User>{
     return this.http.post<User>(this.userUrl, user);
   }

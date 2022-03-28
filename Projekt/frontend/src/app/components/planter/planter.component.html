@@ -1,6 +1,6 @@
 
 <div class="main-div" xmlns="http://www.w3.org/1999/html">
-  <mat-grid-list cols="1" rowHeight="39%">
+  <mat-grid-list cols="1" rowHeight="43%">
 
     <mat-grid-tile class="landing-part" [colspan]="1">
       <span (click)="openEditDialog()" class="plant-title">{{plantCard}}</span>
@@ -17,7 +17,7 @@
               <mat-card (click)="openAddDialog('Wasser')" class="add-matcard">
                 <mat-icon>add</mat-icon>
               </mat-card>
-              <mat-card class="entry-matcard" *ngFor="let plan of wasserPlans">{{plan.date}}
+              <mat-card class="entry-matcard" *ngFor="let plan of wasserPlans.reverse()">{{plan.date}}
                 <mat-icon class="cancel-button" (click)="delete(plan._id)">cancel</mat-icon>
               </mat-card>
               <mat-card *ngIf="wasserPlans.length == 0">Erstelle deinen ersten Eintrag.</mat-card>
@@ -46,7 +46,7 @@
               <mat-card (click)="openAddDialog('Duenger')" class="add-matcard">
                 <mat-icon>add</mat-icon>
               </mat-card>
-              <mat-card class="entry-matcard" *ngFor="let plan of duengerPlans">{{plan.date}}
+              <mat-card class="entry-matcard" *ngFor="let plan of duengerPlans.reverse()">{{plan.date}}
                 <mat-icon class="cancel-button" (click)="delete(plan._id)">cancel</mat-icon>
               </mat-card>
               <mat-card *ngIf="duengerPlans.length == 0">Erstelle deinen ersten Eintrag.</mat-card>
@@ -75,7 +75,7 @@
               <mat-card (click)="openAddDialog('Umtopfen')" class="add-matcard">
                 <mat-icon>add</mat-icon>
               </mat-card>
-              <mat-card class="entry-matcard" *ngFor="let plan of umtopfPlans">
+              <mat-card class="entry-matcard" *ngFor="let plan of umtopfPlans.reverse()">
                 {{plan.date}}
                 <mat-icon class="cancel-button" (click)="delete(plan._id)">cancel</mat-icon>
               </mat-card>
